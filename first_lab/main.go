@@ -62,7 +62,7 @@ var tmpl = template.Must(template.New("fuel").Parse(`
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fuel Calculator</title>
+	<title>Калькулятор складу палива</title>
 	<style>
 		body { font-family: Arial, sans-serif; background-color: #f4f4f4; text-align: center; padding: 20px; }
 		form { background: white; padding: 20px; max-width: 300px; margin: auto; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
@@ -75,26 +75,26 @@ var tmpl = template.Must(template.New("fuel").Parse(`
 	</style>
 </head>
 <body>
-	<h1>Fuel Composition Calculator</h1>
+	<h1>Калькулятор складу палива</h1>
 	<form method="post">
-		<label>HP: <input type="text" name="HP"></label><br>
-		<label>CP: <input type="text" name="CP"></label><br>
-		<label>SP: <input type="text" name="SP"></label><br>
-		<label>NP: <input type="text" name="NP"></label><br>
-		<label>OP: <input type="text" name="OP"></label><br>
-		<label>WP: <input type="text" name="WP"></label><br>
-		<label>AP: <input type="text" name="AP"></label><br>
-		<input type="submit" value="Calculate">
-		<button type="submit" name="clear" value="true">Clear Results</button>
+		<label>Водень (HP): <input type="text" name="HP"></label><br>
+		<label>Вуглець (CP): <input type="text" name="CP"></label><br>
+		<label>Сірка (SP): <input type="text" name="SP"></label><br>
+		<label>Азот (NP): <input type="text" name="NP"></label><br>
+		<label>Кисень (OP): <input type="text" name="OP"></label><br>
+		<label>Волога (WP): <input type="text" name="WP"></label><br>
+		<label>Зола (AP): <input type="text" name="AP"></label><br>
+		<input type="submit" value="Розрахувати">
+		<button type="submit" name="clear" value="true">Очистити результати</button>
 	</form>
 	{{if .ShowResults}}
 		<div class="results">
-			<h2>Results:</h2>
-			<p>KRS: {{.KRS}}</p>
-			<p>KRG: {{.KRG}}</p>
-			<p>HC: {{.HC}}, CC: {{.CC}}, SC: {{.SC}}, NC: {{.NC}}, OC: {{.OC}}, AC: {{.AC}}</p>
-			<p>HG: {{.HG}}, CG: {{.CG}}, SG: {{.SG}}, NG: {{.NG}}, OG: {{.OG}}</p>
-			<p>Lower Heating Value (QrH): {{.QrH}} MJ/kg</p>
+			<h2>Результати:</h2>
+			<p>Коефіцієнт сухої маси (KRS): {{.KRS}}</p>
+			<p>Коефіцієнт горючої маси (KRG): {{.KRG}}</p>
+			<p>Сухий склад: Водень (HC): {{.HC}}, Вуглець (CC): {{.CC}}, Сірка (SC): {{.SC}}, Азот (NC): {{.NC}}, Кисень (OC): {{.OC}}, Зола (AC): {{.AC}}</p>
+			<p>Горючий склад: Водень (HG): {{.HG}}, Вуглець (CG): {{.CG}}, Сірка (SG): {{.SG}}, Азот (NG): {{.NG}}, Кисень (OG): {{.OG}}</p>
+			<p>Нижча теплота згоряння (QrH): {{.QrH}} МДж/кг</p>
 		</div>
 	{{end}}
 </body>
@@ -103,6 +103,6 @@ var tmpl = template.Must(template.New("fuel").Parse(`
 
 func main() {
 	http.HandleFunc("/", fuelHandler)
-	fmt.Println("Server started at :8080")
+	fmt.Println("Сервер запущено на :8080")
 	http.ListenAndServe(":8080", nil)
 }
