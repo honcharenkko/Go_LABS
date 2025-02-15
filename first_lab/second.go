@@ -63,7 +63,7 @@ const htmlTemplate = `
     </style>
 </head>
 <body>
-    <h1>Fuel Composition Calculator</h1>
+    <h1>Друге завдання</h1>
     <form method="post">
         <label>H: <input type="text" name="H"></label><br>
         <label>C: <input type="text" name="C"></label><br>

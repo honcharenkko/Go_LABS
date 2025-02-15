@@ -75,7 +75,7 @@ var tmpl = template.Must(template.New("fuel").Parse(`
 	</style>
 </head>
 <body>
-	<h1>Калькулятор складу палива</h1>
+	<h1>Перше завдання</h1>
 	<form method="post">
 		<label>Водень (HP): <input type="text" name="HP"></label><br>
 		<label>Вуглець (CP): <input type="text" name="CP"></label><br>
